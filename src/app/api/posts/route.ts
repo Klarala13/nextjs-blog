@@ -1,9 +1,7 @@
 import getPosts from "@/services/getPosts";
-import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: Request) {
-  const posts = await getPosts();
-  console.log("posts", posts);
+export async function GET(request: Request, response: Response) {
+  const posts = getPosts();
 
-  return NextResponse.json(posts);
+  return Response.json(posts);
 }
